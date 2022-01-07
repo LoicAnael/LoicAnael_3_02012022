@@ -4,7 +4,7 @@
   "description": "Mon projet 3 openClassrooms Oh My Food",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch style.scss style.css"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "url": "https://github.com/LoicAnael/Project-3-Oh-My-Food/issues"
   },
   "homepage": "https://github.com/LoicAnael/Project-3-Oh-My-Food#readme",
-  "dependencies": {
+  "devDependencies": {
     "sass": "^1.46.0"
   }
 }
