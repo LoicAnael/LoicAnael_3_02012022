@@ -1,0 +1,22 @@
+{
+  "name": "ohmyfoodp3",
+  "version": "1.0.0",
+  "description": "Mon projet 3 openClassrooms Oh My Food",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoicAnael/Project-3-Oh-My-Food.git"
+  },
+  "author": "loic anael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoicAnael/Project-3-Oh-My-Food/issues"
+  },
+  "homepage": "https://github.com/LoicAnael/Project-3-Oh-My-Food#readme",
+  "dependencies": {
+    "sass": "^1.46.0"
+  }
+}

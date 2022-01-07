@@ -53,8 +53,10 @@ section .discover button{
     transition-duration: 0.25s;
     box-shadow: 0.25rem 0.25rem 10px grey;
     margin-bottom: 20px;
+    transition: 100ms;
 }
 section .discover button:hover{
     transform: scale(1.1);
     opacity: 80%;
+    
 }
