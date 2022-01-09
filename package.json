@@ -4,7 +4,8 @@
   "description": "Mon projet 3 openClassrooms Oh My Food",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch style.scss style.css"
+    "sass": "sass --watch style.scss style.css",
+    "test": "index.html"
   },
   "repository": {
     "type": "git",
