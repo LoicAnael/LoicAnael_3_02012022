@@ -10,10 +10,13 @@ $tertiary-color: #99E2D0;
 $white-color: white;
 $grey-color: grey;
 $light-grey:#f7f4f4;
-$gradient-color:  linear-gradient($secondary-color, $primary-color);
+$gradient-color:  linear-gradient(To bottom, $secondary-color, $primary-color);
 $font-shrikland:  Shrikhand, sans-serif;
 
 /*mixings*/
+@mixin gradient{
+  color:linear-gradient(To bottom, $secondary-color, $primary-color);
+}
 @mixin items-position($display:flex, $align:center, $justify:center,$direction:column) {
   display: $display;
   align-items: $align;
@@ -21,7 +24,7 @@ $font-shrikland:  Shrikhand, sans-serif;
   flex-direction: $direction;
 }
 @mixin btn-zoom {
-  transform: scale(1.05);
+  transform: scale(1.02);
         opacity: 80%;
 }
 @mixin btn-shade {
@@ -39,16 +42,17 @@ $font-shrikland:  Shrikhand, sans-serif;
 }
 
 /*part style : header */
-header{
+body{
+  margin: 0;
   h1{
-  @include items-position;
+  @include grid-center;
   height: 80px;
   box-shadow: 0 0 4px $grey-color;
   position: relative;
   font-family:$font-shrikland;
   margin: 0;}
 }
-  
+
 
 main{
   & .location {
@@ -63,14 +67,16 @@ main{
 }
 
 section{
-  & .discover {
+    .discover {
     @include items-position($justify:space-around);
     text-align: center;
     width: 100%;
     height: 220px;
     background-color: #fdf7f7;
-    
-    & a {
+    p{
+        width: 90%;
+    }
+    &-button {
       padding: 15px 30px;
       border-radius: 30px;
       background-image: $gradient-color;
@@ -84,6 +90,11 @@ section{
       &:active {
        @include btn-zoom;
       }
+      @media screen and (min-width:992px){
+      &:hover{
+          @include btn-zoom;
+        }
+      }
     }
   }
 
@@ -91,10 +102,10 @@ section{
 
 .functioning{
    margin-right: 5%;
-  & h2{
+  h2{
     padding-left: 30px;
   }
-  & ol{
+  ol{
     @include items-position($align:unset, $justify:unset);
     gap: 20px;
     margin: 0, 0;
@@ -102,7 +113,7 @@ section{
       @include items-position($direction:row, $justify:space-between);
     }
   
-    & li{
+    li{
       width: 100%;
       padding: 30px;
       border-radius: 20px;
@@ -112,10 +123,10 @@ section{
       font-weight: 500;
       font-size: large;
       @include btn-shade;
-      & i{
+      i{
         margin-right: 15px;
       }
-      & .serial-number{
+      .serial-number{
         @include grid-center;
         width: 20px;
         height: 20px;
@@ -133,20 +144,22 @@ section{
   background-color: $light-grey;
   width: 100%;
   padding-bottom: 100px;
-  & h2{
+  h2{
    text-align: left;
    width: 90%;
   }
-  & a{
+   a{
     @include link-style;
   }
-  & .restau{
+  .restau{
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: repeat(1, 100%);
     border: 1px solid blue;
     width: 90%;
     gap: 20px;
-  
+    @media screen and (min-width: 992px) {
+    grid-template-columns : repeat(2, 49%); 
+    }
     &-card{
       @include btn-shade;
       @include items-position($align:unset, $justify:space-between);
@@ -160,13 +173,18 @@ section{
       &:active{
         @include btn-zoom;
       }
+      @media screen and (min-width:992px){
+        &:hover{
+          @include btn-zoom;
+        }
+      }
       &__image{
-        & img {
+         img {
           object-fit: cover;
           width: 100%; 
           height: 240px;
         }
-        & .new{
+         .new{
           @include grid-center;
           position: absolute;
           right: 10px;
@@ -182,23 +200,32 @@ section{
         @include items-position($justify:center);
         transform: translateY(-50%);
         position: relative;
-        & h3, p{
+         h3, p{
           height: 10px;
           width: 95%;
           margin-bottom: 0;
         }
-        & i.far{
+         i.far, i.fas{
           position: absolute;
           font-size: x-large;
           right: 20px;
           top: 20px;
-        }     
+        }
+        i.fas{
+          color: transparent;
+          &:active{
+          color: $primary-color;
+          }
+          @media screen and (min-width:992px){
+            &:hover{
+              color: $primary-color;
+            }
+          }
+        }    
       }
     }
-    @media screen and (min-width:992px) {
-      grid-template-columns: repeat(2, 49%) ; 
-    }
   }
+ 
 }
 footer{
   background-color: rgb(48, 44, 44);
@@ -219,4 +246,3 @@ footer{
     margin: 5px;
   }
 }
-

@@ -6,11 +6,12 @@
 /*variables*/
 /*mixings*/
 /*part style : header */
-header h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+body {
+  margin: 0;
+}
+body h1 {
+  display: grid;
+  place-items: center;
   height: 80px;
   box-shadow: 0 0 4px grey;
   position: relative;
@@ -40,10 +41,13 @@ section .discover {
   height: 220px;
   background-color: #fdf7f7;
 }
-section .discover a {
+section .discover p {
+  width: 90%;
+}
+section .discover-button {
   padding: 15px 30px;
   border-radius: 30px;
-  background-image: linear-gradient(#FF79DA, #9356DC);
+  background-image: linear-gradient(To bottom, #FF79DA, #9356DC);
   border: none;
   font-size: large;
   font-weight: 700;
@@ -54,9 +58,15 @@ section .discover a {
   transition: 50ms;
   text-decoration: none;
 }
-section .discover a:active {
-  transform: scale(1.05);
+section .discover-button:active {
+  transform: scale(1.02);
   opacity: 80%;
+}
+@media screen and (min-width: 992px) {
+  section .discover-button:hover {
+    transform: scale(1.02);
+    opacity: 80%;
+  }
 }
 
 .functioning {
@@ -128,10 +138,15 @@ section .discover a:active {
 }
 .restaurants .restau {
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: repeat(1, 100%);
   border: 1px solid blue;
   width: 90%;
   gap: 20px;
+}
+@media screen and (min-width: 992px) {
+  .restaurants .restau {
+    grid-template-columns: repeat(2, 49%);
+  }
 }
 .restaurants .restau-card {
   cursor: pointer;
@@ -150,8 +165,14 @@ section .discover a:active {
   background-color: white;
 }
 .restaurants .restau-card:active {
-  transform: scale(1.05);
+  transform: scale(1.02);
   opacity: 80%;
+}
+@media screen and (min-width: 992px) {
+  .restaurants .restau-card:hover {
+    transform: scale(1.02);
+    opacity: 80%;
+  }
 }
 .restaurants .restau-card__image img {
   object-fit: cover;
@@ -183,15 +204,21 @@ section .discover a:active {
   width: 95%;
   margin-bottom: 0;
 }
-.restaurants .restau-card__description i.far {
+.restaurants .restau-card__description i.far, .restaurants .restau-card__description i.fas {
   position: absolute;
   font-size: x-large;
   right: 20px;
   top: 20px;
 }
+.restaurants .restau-card__description i.fas {
+  color: transparent;
+}
+.restaurants .restau-card__description i.fas:active {
+  color: #9356DC;
+}
 @media screen and (min-width: 992px) {
-  .restaurants .restau {
-    grid-template-columns: repeat(2, 49%);
+  .restaurants .restau-card__description i.fas:hover {
+    color: #9356DC;
   }
 }
 
