@@ -10,19 +10,15 @@ $tertiary-color: #99E2D0;
 $white-color: white;
 $grey-color: grey;
 $light-grey:#f7f4f4;
-$gradient-color:linear-gradient($secondary-color, $primary-color);
+$gradient-color:  linear-gradient($secondary-color, $primary-color);
+$font-shrikland:  Shrikhand, sans-serif;
+
 /*mixings*/
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-}
-@mixin flex-column {
-  flex-direction: column;
-}
-@mixin  flex-all-center {
-  display: flex;
-  align-items: center;
-  justify-content: center; 
+@mixin items-position($display:flex, $align:center, $justify:center,$direction:column) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify; 
+  flex-direction: $direction;
 }
 @mixin btn-zoom {
   transform: scale(1.05);
@@ -35,7 +31,7 @@ $gradient-color:linear-gradient($secondary-color, $primary-color);
 }
 @mixin link-style{
   text-decoration: none;
-  color: black
+  color: inherit
 }
 @mixin grid-center{
   display: grid;
@@ -43,20 +39,20 @@ $gradient-color:linear-gradient($secondary-color, $primary-color);
 }
 
 /*part style : header */
-header {
-  @include flex-all-center;
-  width: 100%;
+header{
+  h1{
+  @include items-position;
   height: 80px;
   box-shadow: 0 0 4px $grey-color;
   position: relative;
-  & img {
-    height: 30px;
-  }
+  font-family:$font-shrikland;
+  margin: 0;}
 }
+  
 
 main{
   & .location {
-    @include flex-all-center;
+    @include items-position($direction:unset);
     background-color: $light-grey;
     gap: 10px;
     & i {
@@ -68,9 +64,7 @@ main{
 
 section{
   & .discover {
-    @include flex-center;
-    @include flex-column;
-    justify-content: space-around;
+    @include items-position($justify:space-around);
     text-align: center;
     width: 100%;
     height: 220px;
@@ -101,12 +95,15 @@ section{
     padding-left: 30px;
   }
   & ol{
-    display: flex;
-    @include flex-column;
+    @include items-position($align:unset, $justify:unset);
     gap: 20px;
     margin: 0, 0;
+    @media screen and (min-width:992px){
+      @include items-position($direction:row, $justify:space-between);
+    }
   
     & li{
+      width: 100%;
       padding: 30px;
       border-radius: 20px;
       background-color: $light-grey;
@@ -132,8 +129,7 @@ section{
   }
 }
 .restaurants{
-  @include flex-center;
-  @include flex-column;
+  @include items-position($justify:unset);
   background-color: $light-grey;
   width: 100%;
   padding-bottom: 100px;
@@ -150,11 +146,10 @@ section{
     border: 1px solid blue;
     width: 90%;
     gap: 20px;
+  
     &-card{
       @include btn-shade;
-      display: flex;
-      justify-content: space-between;
-      @include flex-column;
+      @include items-position($align:unset, $justify:space-between);
       position: relative;
       overflow: hidden;
       border: 1px solid red;
@@ -183,25 +178,25 @@ section{
         }
       }
       &__description{
-        height: 20px;
-        @include flex-center;
-        justify-content: center;
-        flex-direction: column;
+        height: 40px;
+        @include items-position($justify:center);
         transform: translateY(-50%);
         position: relative;
         & h3, p{
-          @include flex-center;
           height: 10px;
-          margin-top: 0;
           width: 95%;
+          margin-bottom: 0;
         }
-        & i{
+        & i.far{
           position: absolute;
           font-size: x-large;
           right: 20px;
-          bottom: 10px;
+          top: 20px;
         }     
       }
+    }
+    @media screen and (min-width:992px) {
+      grid-template-columns: repeat(2, 49%) ; 
     }
   }
 }
@@ -211,15 +206,17 @@ footer{
   margin-top: -20px;
   padding-bottom: 20px;
   padding-top: 20px;
-  a, h2{
-    @include flex-center;
+  a ,h2{
+    @include items-position($justify:unset, $direction:unset);
     gap: 10px;
-    text-decoration: none;
-    color: $white-color;
+    @include link-style;
     margin-left: 5%;
-    padding: 0;
-   
-
+  }
+  h2{
+    font-family: $font-shrikland;
+  }
+  p{
+    margin: 5px;
   }
 }
 
