@@ -9,14 +9,16 @@
 body {
   margin: 0;
 }
-body h1 {
+body header {
   display: grid;
   place-items: center;
   height: 80px;
   box-shadow: 0 0 4px grey;
   position: relative;
-  font-family: Shrikhand, sans-serif;
   margin: 0;
+}
+body header h1 {
+  font-family: Shrikhand, sans-serif;
 }
 
 main .location {
@@ -96,7 +98,7 @@ section .discover-button:active {
   padding: 30px;
   border-radius: 20px;
   background-color: #f7f4f4;
-  list-style-type: none;
+  list-style: none;
   position: relative;
   font-weight: 500;
   font-size: large;
@@ -106,6 +108,7 @@ section .discover-button:active {
 }
 .functioning ol li i {
   margin-right: 15px;
+  opacity: 0.5;
 }
 .functioning ol li .serial-number {
   display: grid;
@@ -136,19 +139,18 @@ section .discover-button:active {
   text-decoration: none;
   color: inherit;
 }
-.restaurants .restau {
+.restaurants .restaurant {
   display: grid;
   grid-template-columns: repeat(1, 100%);
-  border: 1px solid blue;
   width: 90%;
   gap: 20px;
 }
 @media screen and (min-width: 992px) {
-  .restaurants .restau {
+  .restaurants .restaurant {
     grid-template-columns: repeat(2, 49%);
   }
 }
-.restaurants .restau-card {
+.restaurants .restaurant-card {
   cursor: pointer;
   box-shadow: 3px 3px 5px grey;
   transition: 50ms;
@@ -158,28 +160,27 @@ section .discover-button:active {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  border: 1px solid red;
   width: 100%;
   height: 300px;
   border-radius: 20px;
   background-color: white;
 }
-.restaurants .restau-card:active {
+.restaurants .restaurant-card:active {
   transform: scale(1.02);
   opacity: 80%;
 }
 @media screen and (min-width: 992px) {
-  .restaurants .restau-card:hover {
+  .restaurants .restaurant-card:hover {
     transform: scale(1.02);
     opacity: 80%;
   }
 }
-.restaurants .restau-card__image img {
+.restaurants .restaurant-card--image img {
   object-fit: cover;
   width: 100%;
   height: 240px;
 }
-.restaurants .restau-card__image .new {
+.restaurants .restaurant-card--image .new {
   display: grid;
   place-items: center;
   position: absolute;
@@ -188,9 +189,10 @@ section .discover-button:active {
   width: 80px;
   height: 30px;
   background-color: #99E2D0;
-  color: #1b6150;
+  color: black;
+  border-radius: 5px;
 }
-.restaurants .restau-card__description {
+.restaurants .restaurant-card--description {
   height: 40px;
   display: flex;
   align-items: center;
@@ -199,27 +201,23 @@ section .discover-button:active {
   transform: translateY(-50%);
   position: relative;
 }
-.restaurants .restau-card__description h3, .restaurants .restau-card__description p {
+.restaurants .restaurant-card--description h3, .restaurants .restaurant-card--description p {
   height: 10px;
   width: 95%;
   margin-bottom: 0;
 }
-.restaurants .restau-card__description i.far, .restaurants .restau-card__description i.fas {
+.restaurants .restaurant-card--description i.far, .restaurants .restaurant-card--description i.fas {
   position: absolute;
   font-size: x-large;
   right: 20px;
   top: 20px;
 }
-.restaurants .restau-card__description i.fas {
-  color: transparent;
-}
-.restaurants .restau-card__description i.fas:active {
+.restaurants .restaurant-card--description i.fas {
+  opacity: 0;
   color: #9356DC;
 }
-@media screen and (min-width: 992px) {
-  .restaurants .restau-card__description i.fas:hover {
-    color: #9356DC;
-  }
+.restaurants .restaurant-card--description i.fas:active, .restaurants .restaurant-card--description i.fas:hover {
+  opacity: 1;
 }
 
 footer {
@@ -244,6 +242,176 @@ footer h2 {
 }
 footer p {
   margin: 5px;
+}
+
+/*Restaurant la palette du gout*/
+header .logo {
+  width: 100%;
+}
+header .logo i {
+  margin-left: 20px;
+  height: 100%;
+  position: absolute;
+  font-size: x-large;
+  display: grid;
+  place-items: center;
+}
+header .logo h1 {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.menu-card {
+  height: 80vh;
+  margin: 0;
+}
+.menu-card--image {
+  object-fit: cover;
+  height: 70vh;
+  width: 100%;
+  margin: 0;
+}
+.menu-card--title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  bottom: 50px;
+  height: 20vh;
+  background-color: #eeeeee;
+  border-radius: 50px 50px 0 0;
+}
+.menu-card--title h2 {
+  font-family: Shrikhand, sans-serif;
+  font-size: xx-large;
+  margin-left: 20px;
+  width: 100%;
+}
+.menu-card--title i.far, .menu-card--title i.fas {
+  position: absolute;
+  font-size: xx-large;
+  right: 50px;
+}
+.menu-card--title i.fas, .menu-card--title .linear-gradient {
+  opacity: 0;
+  color: #9356DC;
+}
+.menu-card--title i.fas:active, .menu-card--title i.fas:hover, .menu-card--title .linear-gradient:active, .menu-card--title .linear-gradient:hover {
+  opacity: 1;
+}
+
+.menus {
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  gap: 40px;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+@media screen and (min-width: 992px) {
+  .menus {
+    grid-template-columns: repeat(3, 31%);
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+.menus h3 {
+  border-bottom: 3px solid #99E2D0;
+  width: 50px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  font-weight: 400;
+  margin-top: 0;
+}
+.menus .menu {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-direction: column;
+}
+.menus .menu a {
+  text-decoration: none;
+  color: inherit;
+}
+.menus .menu-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: white;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px grey;
+  transition: 50ms;
+}
+.menus .menu-grid h4, .menus .menu-grid p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 15px;
+  width: 100%;
+  height: 15px;
+}
+.menus .menu-grid h4 .price, .menus .menu-grid p .price {
+  margin-right: 30px;
+  font-weight: 900;
+}
+.menus .menu-grid h4 {
+  font-size: 20px;
+}
+.menus .menu-grid--text {
+  width: 100%;
+}
+.menus .menu-grid--check {
+  display: grid;
+  place-items: center;
+  color: white;
+  height: 100%;
+  border-radius: 0 20px 20px 0;
+  width: 15%;
+  background-color: #99E2D0;
+  margin-right: -16%;
+  font-size: x-large;
+  transition: margin-right 1000ms;
+}
+.menus .menu-grid:active .menu-grid--check, .menus .menu-grid:hover .menu-grid--check {
+  margin-right: 0;
+  transition: 200ms;
+}
+
+.order {
+  width: 80vw;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.order button {
+  border-radius: 40px;
+  padding: 20px;
+  width: 50%;
+  font-size: large;
+  font-weight: 500;
+  color: white;
+  background-image: linear-gradient(To bottom, #FF79DA, #9356DC);
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px grey;
+  transition: 50ms;
+}
+.order button:active, .order button:hover {
+  transform: scale(1.02);
+  opacity: 80%;
+}
+@media screen and (min-width: 992px) {
+  .order button {
+    width: 25%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

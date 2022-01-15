@@ -14,9 +14,7 @@ $gradient-color:  linear-gradient(To bottom, $secondary-color, $primary-color);
 $font-shrikland:  Shrikhand, sans-serif;
 
 /*mixings*/
-@mixin gradient{
-  color:linear-gradient(To bottom, $secondary-color, $primary-color);
-}
+
 @mixin items-position($display:flex, $align:center, $justify:center,$direction:column) {
   display: $display;
   align-items: $align;
@@ -44,13 +42,16 @@ $font-shrikland:  Shrikhand, sans-serif;
 /*part style : header */
 body{
   margin: 0;
-  h1{
+  header{
   @include grid-center;
   height: 80px;
   box-shadow: 0 0 4px $grey-color;
   position: relative;
-  font-family:$font-shrikland;
-  margin: 0;}
+  margin: 0;
+  h1{
+    font-family:$font-shrikland;
+  }
+}
 }
 
 
@@ -118,13 +119,14 @@ section{
       padding: 30px;
       border-radius: 20px;
       background-color: $light-grey;
-      list-style-type: none;
+      list-style: none;
       position: relative;
       font-weight: 500;
       font-size: large;
       @include btn-shade;
       i{
         margin-right: 15px;
+        opacity: .5;
       }
       .serial-number{
         @include grid-center;
@@ -151,10 +153,9 @@ section{
    a{
     @include link-style;
   }
-  .restau{
+  .restaurant{
     display: grid;
     grid-template-columns: repeat(1, 100%);
-    border: 1px solid blue;
     width: 90%;
     gap: 20px;
     @media screen and (min-width: 992px) {
@@ -165,7 +166,6 @@ section{
       @include items-position($align:unset, $justify:space-between);
       position: relative;
       overflow: hidden;
-      border: 1px solid red;
       width: 100%;
       height: 300px;
       border-radius: 20px;
@@ -178,24 +178,25 @@ section{
           @include btn-zoom;
         }
       }
-      &__image{
+      &--image{
          img {
           object-fit: cover;
           width: 100%; 
           height: 240px;
         }
-         .new{
-          @include grid-center;
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          width: 80px;
-          height: 30px;
-          background-color: $tertiary-color;
-          color: darken($tertiary-color , 50%);
-        }
+        .new{
+         @include grid-center;
+         position: absolute;
+         right: 10px;
+         top: 10px;
+         width: 80px;
+         height: 30px;
+         background-color: $tertiary-color;
+         color: darken($tertiary-color , 80%);
+         border-radius: 5px;
+       }
       }
-      &__description{
+      &--description{
         height: 40px;
         @include items-position($justify:center);
         transform: translateY(-50%);
@@ -211,15 +212,11 @@ section{
           right: 20px;
           top: 20px;
         }
-        i.fas{
-          color: transparent;
-          &:active{
+        i.fas {
+          opacity: 0;
           color: $primary-color;
-          }
-          @media screen and (min-width:992px){
-            &:hover{
-              color: $primary-color;
-            }
+          &:active , &:hover{
+          opacity: 1;
           }
         }    
       }
@@ -244,5 +241,156 @@ footer{
   }
   p{
     margin: 5px;
+  }
+}
+
+
+
+/*Restaurant la palette du gout*/
+header{
+  .logo{
+    width: 100%;
+    i{
+      margin-left: 20px;
+      height: 100%;
+      position: absolute;
+      font-size: x-large;
+      @include grid-center;
+    }
+    h1{
+      width: 100%;
+      @include grid-center;
+    }
+  }
+}
+
+.menu-card {
+  height: 80vh;
+  margin: 0;
+  &--image{
+    object-fit: cover;
+    height: 70vh;
+    width: 100%;
+    margin: 0;
+  }
+  &--title{
+    @include items-position($justify:space-between,$direction:row);
+    position: relative;
+    width: 100%;
+    bottom: 50px;
+    height: 20vh;
+    background-color: #eeeeee;
+    border-radius: 50px 50px 0 0;
+    h2{
+      font-family: $font-shrikland;
+      font-size: xx-large;
+      margin-left: 20px;
+      width: 100%;
+    }
+    i.far, i.fas{
+      position: absolute;
+      font-size: xx-large;
+      right: 50px;
+    }
+    i.fas , .linear-gradient{
+      opacity: 0;
+      color: $primary-color;
+      &:active , &:hover{
+      opacity: 1;
+      }
+    }
+  }
+}
+.menus{
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  gap: 40px;
+  background-color: #eeeeee;
+  padding: 20px;
+  @media screen and (min-width:992px){
+    grid-template-columns: repeat(3, 31%);
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  h3{
+    border-bottom: 3px solid $tertiary-color;
+    width: 50px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  .menu{
+    @include items-position($align: baseline);
+    a{
+      @include link-style;
+    }
+    &-grid{
+      @include items-position($direction:row, $justify:space-between);
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      background-color: $white-color;
+      overflow: hidden;
+      @include btn-shade;
+      h4, p{
+        @include items-position($direction:row, $justify:space-between);
+        margin: 15px;
+        width: 100%;
+        height: 15px;
+        .price{
+          margin-right: 30px;
+          font-weight: 900;
+        }
+      }
+      h4{
+        font-size: 20px;
+      }
+      &--text{
+        width: 100%;
+      }
+      &--check{
+        @include grid-center;
+        color: $white-color;
+        height: 100%;
+        border-radius: 0 20px 20px 0;
+        width: 15%;
+        background-color: $tertiary-color;
+        margin-right: -16%;
+        font-size: x-large;
+        transition: margin-right 1000ms;
+      }
+      &:active .menu-grid--check, &:hover .menu-grid--check{
+        margin-right: 0;
+        transition: 200ms;
+      }
+    }
+  }
+}
+
+
+.order {
+  width: 80vw;
+  text-align: center;
+  margin-bottom: 50px;
+  button{
+  border-radius: 40px;
+  padding: 20px;
+   width: 50%;
+   font-size: large;
+   font-weight: 500;
+   color: $white-color;
+   background-image: $gradient-color;
+   border: none;
+   margin: auto;
+   @include btn-shade;
+   &:active, &:hover{
+      @include btn-zoom;
+   }
+  }
+  @media screen and (min-width:992px){
+    button{
+      width:25%;
+    }
   }
 }
