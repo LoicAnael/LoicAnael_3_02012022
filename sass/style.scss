@@ -2,6 +2,23 @@
   box-sizing: border-box;
   font-family: roboto, sans-serif;
 }
+/*keyframe*/
+@keyframes checked-round{
+  from{
+    transform: rotate(360deg);
+  }
+  to{
+    transform: rotate(0);
+  }
+}
+@keyframes checked-out{
+   from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
 
 /*variables*/
 $primary-color: #9356DC;
@@ -21,6 +38,7 @@ $font-shrikland:  Shrikhand, sans-serif;
   justify-content: $justify; 
   flex-direction: $direction;
 }
+
 @mixin btn-zoom {
   transform: scale(1.02);
         opacity: 80%;
@@ -29,6 +47,20 @@ $font-shrikland:  Shrikhand, sans-serif;
   cursor: pointer;
       box-shadow: 3px 3px 5px $grey-color;
       transition: 50ms;
+}
+@mixin button-style{
+  padding: 15px 30px;
+  border-radius: 30px;
+  background-image: $gradient-color;
+  border: none;
+  font-size: large;
+  font-weight: 700;
+  color: $white-color;
+  margin-bottom: 20px;
+  @include btn-shade;
+  &:active, &:hover {
+   @include btn-zoom;
+  }
 }
 @mixin link-style{
   text-decoration: none;
@@ -78,24 +110,7 @@ section{
         width: 90%;
     }
     &-button {
-      padding: 15px 30px;
-      border-radius: 30px;
-      background-image: $gradient-color;
-      border: none;
-      font-size: large;
-      font-weight: 700;
-      color: $white-color;
-      margin-bottom: 20px;
-      @include btn-shade;
-      text-decoration: none;
-      &:active {
-       @include btn-zoom;
-      }
-      @media screen and (min-width:992px){
-      &:hover{
-          @include btn-zoom;
-        }
-      }
+        @include button-style;
     }
   }
 
@@ -235,12 +250,20 @@ footer{
     gap: 10px;
     @include link-style;
     margin-left: 5%;
+    width: fit-content;
   }
   h2{
     font-family: $font-shrikland;
   }
   p{
     margin: 5px;
+  }
+  @media screen and (min-width:992px){
+    
+    .foot-items{
+      @include items-position($direction:row);
+      white-space: nowrap;
+    }
   }
 }
 
@@ -322,9 +345,6 @@ header{
   }
   .menu{
     @include items-position($align: baseline);
-    a{
-      @include link-style;
-    }
     &-grid{
       @include items-position($direction:row, $justify:space-between);
       width: 100%;
@@ -333,13 +353,16 @@ header{
       background-color: $white-color;
       overflow: hidden;
       @include btn-shade;
+      cursor: pointer;
       h4, p{
         @include items-position($direction:row, $justify:space-between);
         margin: 15px;
-        width: 100%;
         height: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         .price{
-          margin-right: 30px;
+          margin-right: 0;
           font-weight: 900;
         }
       }
@@ -348,6 +371,9 @@ header{
       }
       &--text{
         width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
       &--check{
         @include grid-center;
@@ -359,10 +385,16 @@ header{
         margin-right: -16%;
         font-size: x-large;
         transition: margin-right 1000ms;
+        i{
+          animation: checked-out 1s ease;
+        }
+        
       }
       &:active .menu-grid--check, &:hover .menu-grid--check{
-        margin-right: 0;
-        transition: 200ms;
+        margin-right: 0;      
+        i{
+          animation: checked-round 1s ease;
+        }
       }
     }
   }
@@ -374,23 +406,6 @@ header{
   text-align: center;
   margin-bottom: 50px;
   button{
-  border-radius: 40px;
-  padding: 20px;
-   width: 50%;
-   font-size: large;
-   font-weight: 500;
-   color: $white-color;
-   background-image: $gradient-color;
-   border: none;
-   margin: auto;
-   @include btn-shade;
-   &:active, &:hover{
-      @include btn-zoom;
-   }
-  }
-  @media screen and (min-width:992px){
-    button{
-      width:25%;
-    }
+   @include button-style;
   }
 }

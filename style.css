@@ -3,6 +3,23 @@
   font-family: roboto, sans-serif;
 }
 
+/*keyframe*/
+@keyframes checked-round {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+@keyframes checked-out {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 /*variables*/
 /*mixings*/
 /*part style : header */
@@ -58,17 +75,10 @@ section .discover-button {
   cursor: pointer;
   box-shadow: 3px 3px 5px grey;
   transition: 50ms;
-  text-decoration: none;
 }
-section .discover-button:active {
+section .discover-button:active, section .discover-button:hover {
   transform: scale(1.02);
   opacity: 80%;
-}
-@media screen and (min-width: 992px) {
-  section .discover-button:hover {
-    transform: scale(1.02);
-    opacity: 80%;
-  }
 }
 
 .functioning {
@@ -236,12 +246,22 @@ footer a, footer h2 {
   text-decoration: none;
   color: inherit;
   margin-left: 5%;
+  width: fit-content;
 }
 footer h2 {
   font-family: Shrikhand, sans-serif;
 }
 footer p {
   margin: 5px;
+}
+@media screen and (min-width: 992px) {
+  footer .foot-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    white-space: nowrap;
+  }
 }
 
 /*Restaurant la palette du gout*/
@@ -331,10 +351,6 @@ header .logo h1 {
   justify-content: center;
   flex-direction: column;
 }
-.menus .menu a {
-  text-decoration: none;
-  color: inherit;
-}
 .menus .menu-grid {
   display: flex;
   align-items: center;
@@ -348,6 +364,7 @@ header .logo h1 {
   cursor: pointer;
   box-shadow: 3px 3px 5px grey;
   transition: 50ms;
+  cursor: pointer;
 }
 .menus .menu-grid h4, .menus .menu-grid p {
   display: flex;
@@ -355,11 +372,13 @@ header .logo h1 {
   justify-content: space-between;
   flex-direction: row;
   margin: 15px;
-  width: 100%;
   height: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .menus .menu-grid h4 .price, .menus .menu-grid p .price {
-  margin-right: 30px;
+  margin-right: 0;
   font-weight: 900;
 }
 .menus .menu-grid h4 {
@@ -367,6 +386,9 @@ header .logo h1 {
 }
 .menus .menu-grid--text {
   width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .menus .menu-grid--check {
   display: grid;
@@ -380,9 +402,14 @@ header .logo h1 {
   font-size: x-large;
   transition: margin-right 1000ms;
 }
+.menus .menu-grid--check i {
+  animation: checked-out 1s ease;
+}
 .menus .menu-grid:active .menu-grid--check, .menus .menu-grid:hover .menu-grid--check {
   margin-right: 0;
-  transition: 200ms;
+}
+.menus .menu-grid:active .menu-grid--check i, .menus .menu-grid:hover .menu-grid--check i {
+  animation: checked-round 1s ease;
 }
 
 .order {
@@ -391,15 +418,14 @@ header .logo h1 {
   margin-bottom: 50px;
 }
 .order button {
-  border-radius: 40px;
-  padding: 20px;
-  width: 50%;
-  font-size: large;
-  font-weight: 500;
-  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
   background-image: linear-gradient(To bottom, #FF79DA, #9356DC);
   border: none;
-  margin: auto;
+  font-size: large;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
   cursor: pointer;
   box-shadow: 3px 3px 5px grey;
   transition: 50ms;
@@ -407,11 +433,6 @@ header .logo h1 {
 .order button:active, .order button:hover {
   transform: scale(1.02);
   opacity: 80%;
-}
-@media screen and (min-width: 992px) {
-  .order button {
-    width: 25%;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
