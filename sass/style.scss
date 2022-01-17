@@ -19,6 +19,23 @@
     transform: rotate(360deg);
   }
 }
+@keyframes menu-appear{
+  from{
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@for $a from 1 to 3{
+  .menu-grid-#{$a}{
+    animation: menu-appear 1s ease;
+    animation-delay: 1s;  
+    color: red;
+  }
+}
 
 /*variables*/
 $primary-color: #9356DC;
@@ -345,6 +362,8 @@ header{
   }
   .menu{
     @include items-position($align: baseline);
+    animation: menu-appear 1s ease;
+    animation-delay: 1s;  
     &-grid{
       @include items-position($direction:row, $justify:space-between);
       width: 100%;
@@ -354,10 +373,11 @@ header{
       overflow: hidden;
       @include btn-shade;
       cursor: pointer;
+      height: 70px;
       h4, p{
         @include items-position($direction:row, $justify:space-between);
-        margin: 15px;
-        height: 15px;
+        margin: 10px;
+        height: 20px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -405,6 +425,7 @@ header{
   width: 80vw;
   text-align: center;
   margin-bottom: 50px;
+  background-color: #eeeeee;
   button{
    @include button-style;
   }

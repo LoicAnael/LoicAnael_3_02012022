@@ -20,6 +20,28 @@
     transform: rotate(360deg);
   }
 }
+@keyframes menu-appear {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menu-grid-1 {
+  animation: menu-appear 1s ease;
+  animation-delay: 1s;
+  color: red;
+}
+
+.menu-grid-2 {
+  animation: menu-appear 1s ease;
+  animation-delay: 1s;
+  color: red;
+}
+
 /*variables*/
 /*mixings*/
 /*part style : header */
@@ -350,6 +372,8 @@ header .logo h1 {
   align-items: baseline;
   justify-content: center;
   flex-direction: column;
+  animation: menu-appear 1s ease;
+  animation-delay: 1s;
 }
 .menus .menu-grid {
   display: flex;
@@ -365,14 +389,15 @@ header .logo h1 {
   box-shadow: 3px 3px 5px grey;
   transition: 50ms;
   cursor: pointer;
+  height: 70px;
 }
 .menus .menu-grid h4, .menus .menu-grid p {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  margin: 15px;
-  height: 15px;
+  margin: 10px;
+  height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -416,6 +441,7 @@ header .logo h1 {
   width: 80vw;
   text-align: center;
   margin-bottom: 50px;
+  background-color: #eeeeee;
 }
 .order button {
   padding: 15px 30px;
