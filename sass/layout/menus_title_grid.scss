@@ -1,9 +1,9 @@
 .menu-card {
-    height: 80vh;
+    height: 70vh;
     margin: 0;
     &--image{
       object-fit: cover;
-      height: 70vh;
+      height: 60vh;
       width: 100%;
       margin: 0;
     }
@@ -15,7 +15,7 @@
       height: 20vh;
       background-color: #eeeeee;
       border-radius: 50px 50px 0 0;
-      
+      padding-bottom: 30px;
       h2{
         font-family: $font-shrikland;
         font-size: xx-large;
