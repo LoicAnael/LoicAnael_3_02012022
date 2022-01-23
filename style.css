@@ -3,6 +3,12 @@
   font-family: roboto, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/*variables*/
+/*mixings*/
 /*keyframe*/
 @keyframes checked-round {
   from {
@@ -10,6 +16,16 @@
   }
   to {
     transform: rotate(0);
+  }
+}
+@keyframes spinner {
+  from {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotate(0);
+    opacity: 0.5;
   }
 }
 @keyframes checked-out {
@@ -30,21 +46,36 @@
     opacity: 1;
   }
 }
-.menu-grid-1 {
-  animation: menu-appear 1s ease;
-  animation-delay: 1s;
-  color: red;
+@keyframes loading {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+.load {
+  animation: loading 1s 3s ease-in-out;
+  animation-fill-mode: forwards;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  inset: 0;
+  opacity: 1;
+  display: grid;
+  place-items: center;
+}
+.load::before {
+  content: " ";
+  animation: spinner 3s ease-in-out forwards;
+  width: 80px;
+  height: 120px;
+  border-left: 15px solid #9356DC;
+  border-right: 15px solid #FF79DA;
+  border-radius: 50%;
 }
 
-.menu-grid-2 {
-  animation: menu-appear 1s ease;
-  animation-delay: 1s;
-  color: red;
-}
-
-/*variables*/
-/*mixings*/
-/*part style : header */
 body {
   margin: 0;
 }
@@ -115,7 +146,7 @@ section .discover-button:active, section .discover-button:hover {
   justify-content: unset;
   flex-direction: column;
   gap: 20px;
-  margin: 0, 0;
+  margin: 50px 0;
 }
 @media screen and (min-width: 992px) {
   .functioning ol {
@@ -141,6 +172,12 @@ section .discover-button:active, section .discover-button:hover {
 .functioning ol li i {
   margin-right: 15px;
   opacity: 0.5;
+}
+.functioning ol li:hover {
+  background-color: #e4d5f6;
+}
+.functioning ol li:hover i {
+  color: #9356DC;
 }
 .functioning ol li .serial-number {
   display: grid;
@@ -286,7 +323,6 @@ footer p {
   }
 }
 
-/*Restaurant la palette du gout*/
 header .logo {
   width: 100%;
 }
@@ -372,10 +408,12 @@ header .logo h1 {
   align-items: baseline;
   justify-content: center;
   flex-direction: column;
-  animation: menu-appear 1s ease;
-  animation-delay: 1s;
 }
 .menus .menu-grid {
+  animation: menu-appear 2000ms ease-in-out both;
+  animation: menu-appear 2000ms ease-in-out both;
+  animation: menu-appear 2000ms ease-in-out both;
+  animation: menu-appear 2000ms ease-in-out both;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -391,29 +429,44 @@ header .logo h1 {
   cursor: pointer;
   height: 70px;
 }
-.menus .menu-grid h4, .menus .menu-grid p {
+.menus .menu-grid:nth-child(1) {
+  animation-delay: 500ms;
+  animation-fill-mode: both;
+}
+.menus .menu-grid:nth-child(2) {
+  animation-delay: 1000ms;
+  animation-fill-mode: both;
+}
+.menus .menu-grid:nth-child(3) {
+  animation-delay: 1500ms;
+  animation-fill-mode: both;
+}
+.menus .menu-grid:nth-child(4) {
+  animation-delay: 2000ms;
+  animation-fill-mode: both;
+}
+.menus .menu-grid .price {
+  height: 70%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 10px;
-  height: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.menus .menu-grid h4 .price, .menus .menu-grid p .price {
-  margin-right: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-right: 20px;
   font-weight: 900;
-}
-.menus .menu-grid h4 {
-  font-size: 20px;
 }
 .menus .menu-grid--text {
   width: 100%;
-  text-overflow: ellipsis;
   overflow: hidden;
+}
+.menus .menu-grid--text h4, .menus .menu-grid--text p {
+  margin: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  width: 95%;
+}
+.menus .menu-grid--text h4 {
+  font-size: 20px;
 }
 .menus .menu-grid--check {
   display: grid;
@@ -435,6 +488,9 @@ header .logo h1 {
 }
 .menus .menu-grid:active .menu-grid--check i, .menus .menu-grid:hover .menu-grid--check i {
   animation: checked-round 1s ease;
+}
+.menus .menu-grid:hover > .price {
+  animation: checked-round 1s ease-in-out;
 }
 
 .order {

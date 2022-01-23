@@ -1,0 +1,41 @@
+/*mixings*/
+
+@mixin items-position($display:flex, $align:center, $justify:center,$direction:column) {
+    display: $display;
+    align-items: $align;
+    justify-content: $justify; 
+    flex-direction: $direction;
+  }
+  
+  @mixin btn-zoom {
+    transform: scale(1.02);
+          opacity: 80%;
+  }
+  @mixin btn-shade {
+    cursor: pointer;
+        box-shadow: 3px 3px 5px $grey-color;
+        transition: 50ms;
+  }
+  @mixin button-style{
+    padding: 15px 30px;
+    border-radius: 30px;
+    background-image: $gradient-color;
+    border: none;
+    font-size: large;
+    font-weight: 700;
+    color: $white-color;
+    margin-bottom: 20px;
+    @include btn-shade;
+    &:active, &:hover {
+     @include btn-zoom;
+    }
+  }
+  @mixin link-style{
+    text-decoration: none;
+    color: inherit
+  }
+  @mixin grid-center{
+    display: grid;
+    place-items: center;
+  }
+  

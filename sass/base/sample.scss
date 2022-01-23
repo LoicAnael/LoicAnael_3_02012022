@@ -1,6 +1,10 @@
+
 * {
   box-sizing: border-box;
   font-family: roboto, sans-serif;
+}
+html{
+  scroll-behavior: smooth;
 }
 /*keyframe*/
 @keyframes checked-round{
@@ -9,6 +13,16 @@
   }
   to{
     transform: rotate(0);
+  }
+}
+@keyframes spinner{
+  from{
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+  to{
+    transform: rotate(0);
+    opacity: 0.5;
   }
 }
 @keyframes checked-out{
@@ -29,13 +43,16 @@
     opacity: 1;
   }
 }
-@for $a from 1 to 3{
-  .menu-grid-#{$a}{
-    animation: menu-appear 1s ease;
-    animation-delay: 1s;  
-    color: red;
-  }
+@keyframes loading{
+    from{
+      transform: translateY(0);
+    }
+    to{
+      transform: translateY(100%);
+      opacity: 0;
+    }
 }
+
 
 /*variables*/
 $primary-color: #9356DC;
@@ -89,6 +106,27 @@ $font-shrikland:  Shrikhand, sans-serif;
 }
 
 /*part style : header */
+.load{
+  animation: loading 1s 3s ease-in-out;
+  animation-fill-mode: forwards;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  inset: 0;
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  &::before{
+    content: " ";
+    animation: spinner 3s ease-in-out forwards;
+    width: 80px;
+    height: 120px;
+    border-left: 15px solid $primary-color;
+    border-right: 15px solid $secondary-color;
+    border-radius: 50%;
+  }
+}
+
 body{
   margin: 0;
   header{
@@ -141,7 +179,7 @@ section{
   ol{
     @include items-position($align:unset, $justify:unset);
     gap: 20px;
-    margin: 0, 0;
+    margin:50px 0;
     @media screen and (min-width:992px){
       @include items-position($direction:row, $justify:space-between);
     }
@@ -159,6 +197,12 @@ section{
       i{
         margin-right: 15px;
         opacity: .5;
+      }
+      &:hover{
+        background-color: lighten($color: $primary-color, $amount: 30%);
+        i{
+         color: $primary-color;
+        }
       }
       .serial-number{
         @include grid-center;
@@ -362,38 +406,51 @@ header{
   }
   .menu{
     @include items-position($align: baseline);
-    animation: menu-appear 1s ease;
-    animation-delay: 1s;  
-    &-grid{
-      @include items-position($direction:row, $justify:space-between);
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: 20px;
-      background-color: $white-color;
-      overflow: hidden;
-      @include btn-shade;
-      cursor: pointer;
-      height: 70px;
-      h4, p{
-        @include items-position($direction:row, $justify:space-between);
-        margin: 10px;
-        height: 20px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        .price{
-          margin-right: 0;
-          font-weight: 900;
-        }
+    @for $a from 1 through 5{
+      &:nth-of-type(#{$a}){
+        animation: menu-appear 1s ease-in-out both;
+        animation-delay: 100ms * $a;  
+        animation-fill-mode: both;
       }
-      h4{
-        font-size: 20px;
+    } 
+    &-grid{
+      @for $a from 1 through 5{
+        &:nth-of-type(#{$a}){
+          animation: menu-appear 3s ease-in-out both;
+          animation-delay: 500ms * $a;  
+          animation-fill-mode: both;
+        }
+      } 
+   
+    @include items-position($direction:row, $justify:space-between);
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: $white-color;
+    overflow: hidden;
+    @include btn-shade;
+    cursor: pointer;
+    height: 70px;
+    .price{
+      height: 70%;
+        @include items-position($align:flex-end, $justify:flex-end);
+        margin-right: 20px;
+        font-weight: 900;
       }
       &--text{
         width: 100%;
-        text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
+        h4, p{
+          margin: 10px;
+          
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 95%;
+        }
+        h4{
+          font-size: 20px;
+        }
       }
       &--check{
         @include grid-center;
@@ -415,6 +472,9 @@ header{
         i{
           animation: checked-round 1s ease;
         }
+      }
+      &:hover > .price{
+        animation: checked-round 1s ease-in-out;
       }
     }
   }

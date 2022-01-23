@@ -1,0 +1,37 @@
+.menu-card {
+    height: 80vh;
+    margin: 0;
+    &--image{
+      object-fit: cover;
+      height: 70vh;
+      width: 100%;
+      margin: 0;
+    }
+    &--title{
+      @include items-position($justify:space-between,$direction:row);
+      position: relative;
+      width: 100%;
+      bottom: 50px;
+      height: 20vh;
+      background-color: #eeeeee;
+      border-radius: 50px 50px 0 0;
+      h2{
+        font-family: $font-shrikland;
+        font-size: xx-large;
+        margin-left: 20px;
+        width: 100%;
+      }
+      i.far, i.fas{
+        position: absolute;
+        font-size: xx-large;
+        right: 50px;
+      }
+      i.fas , .linear-gradient{
+        opacity: 0;
+        color: $primary-color;
+        &:active , &:hover{
+        opacity: 1;
+        }
+      }
+    }
+  }

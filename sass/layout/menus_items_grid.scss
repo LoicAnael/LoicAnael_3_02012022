@@ -1,0 +1,88 @@
+.menus{
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    gap: 40px;
+    background-color: #eeeeee;
+    padding: 20px;
+    @media screen and (min-width:992px){
+      grid-template-columns: repeat(3, 31%);
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    h3{
+      border-bottom: 3px solid $tertiary-color;
+      width: 50px;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      font-weight: 400;
+      margin-top: 0;
+    }
+    .menu{
+      @include items-position($align: baseline);
+        &-grid{
+        @for $a from 1 through $num-menu{
+          animation: menu-appear 2000ms ease-in-out both;
+          &:nth-child(#{$a}){
+            animation-delay: 500ms * $a;  
+            animation-fill-mode: both;
+          }
+        } 
+     
+      @include items-position($direction:row, $justify:space-between);
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      background-color: $white-color;
+      overflow: hidden;
+      @include btn-shade;
+      cursor: pointer;
+      height: 70px;
+      .price{
+        height: 70%;
+          @include items-position($align:flex-end, $justify:flex-end);
+          margin-right: 20px;
+          font-weight: 900;
+        }
+        &--text{
+          width: 100%;
+          overflow: hidden;
+          h4, p{
+            margin: 10px;
+            
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 95%;
+          }
+          h4{
+            font-size: 20px;
+          }
+        }
+        &--check{
+          @include grid-center;
+          color: $white-color;
+          height: 100%;
+          border-radius: 0 20px 20px 0;
+          width: 15%;
+          background-color: $tertiary-color;
+          margin-right: -16%;
+          font-size: x-large;
+          transition: margin-right 1000ms;
+          i{
+            animation: checked-out 1s ease;
+          }
+          
+        }
+        &:active .menu-grid--check, &:hover .menu-grid--check{
+          margin-right: 0;      
+          i{
+            animation: checked-round 1s ease;
+          }
+        }
+        &:hover > .price{
+          animation: checked-round 1s ease-in-out;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,16 @@
+header{
+    .logo{
+      width: 100%;
+      i{
+        margin-left: 20px;
+        height: 100%;
+        position: absolute;
+        font-size: x-large;
+        @include grid-center;
+      }
+      h1{
+        width: 100%;
+        @include grid-center;
+      }
+    }
+  }
