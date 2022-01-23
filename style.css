@@ -363,7 +363,7 @@ header .logo h1 {
 .menu-card--title i.far, .menu-card--title i.fas {
   position: absolute;
   font-size: xx-large;
-  right: 50px;
+  right: 20px;
 }
 .menu-card--title i.fas, .menu-card--title .linear-gradient {
   opacity: 0;
