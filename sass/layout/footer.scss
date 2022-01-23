@@ -17,13 +17,7 @@ footer{
     p{
       margin: 5px;
     }
-    @media screen and (min-width:992px){
-      
-      .foot-items{
-        @include items-position($direction:row);
-        white-space: nowrap;
-      }
-    }
+
   }
   
   

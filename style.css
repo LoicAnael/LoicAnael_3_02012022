@@ -313,15 +313,6 @@ footer h2 {
 footer p {
   margin: 5px;
 }
-@media screen and (min-width: 992px) {
-  footer .foot-items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    white-space: nowrap;
-  }
-}
 
 header .logo {
   width: 100%;
