@@ -55,6 +55,14 @@ html {
     opacity: 0;
   }
 }
+@keyframes heart-grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .load {
   animation: loading 1s 3s ease-in-out;
   animation-fill-mode: forwards;
@@ -258,7 +266,7 @@ section .discover-button:active, section .discover-button:hover {
   width: 80px;
   height: 30px;
   background-color: #99E2D0;
-  color: black;
+  color: #1b6150;
   border-radius: 5px;
 }
 .restaurants .restaurant-card--description {
@@ -270,22 +278,28 @@ section .discover-button:active, section .discover-button:hover {
   transform: translateY(-50%);
   position: relative;
 }
-.restaurants .restaurant-card--description h3, .restaurants .restaurant-card--description p {
+.restaurants .restaurant-card--description h3,
+.restaurants .restaurant-card--description p {
   height: 10px;
   width: 95%;
   margin-bottom: 0;
 }
-.restaurants .restaurant-card--description i.far, .restaurants .restaurant-card--description i.fas {
+.restaurants .restaurant-card--description i.far,
+.restaurants .restaurant-card--description i.fas {
   position: absolute;
   font-size: x-large;
   right: 20px;
   top: 20px;
 }
-.restaurants .restaurant-card--description i.fas {
+.restaurants .restaurant-card--description i.fas,
+.restaurants .restaurant-card--description .linear-gradient {
   opacity: 0;
   color: #9356DC;
 }
-.restaurants .restaurant-card--description i.fas:active, .restaurants .restaurant-card--description i.fas:hover {
+.restaurants .restaurant-card--description i.fas:active, .restaurants .restaurant-card--description i.fas:hover,
+.restaurants .restaurant-card--description .linear-gradient:active,
+.restaurants .restaurant-card--description .linear-gradient:hover {
+  animation: heart-grow 1000ms ease-in-out;
   opacity: 1;
 }
 
@@ -296,7 +310,8 @@ footer {
   padding-bottom: 20px;
   padding-top: 20px;
 }
-footer a, footer h2 {
+footer a,
+footer h2 {
   display: flex;
   align-items: center;
   justify-content: unset;
@@ -360,16 +375,22 @@ header .logo h1 {
   margin-left: 20px;
   width: 100%;
 }
-.menu-card--title i.far, .menu-card--title i.fas {
+.menu-card--title i.far,
+.menu-card--title i.fas {
   position: absolute;
   font-size: xx-large;
   right: 20px;
+  cursor: pointer;
 }
-.menu-card--title i.fas, .menu-card--title .linear-gradient {
+.menu-card--title i.fas,
+.menu-card--title .linear-gradient {
   opacity: 0;
   color: #9356DC;
 }
-.menu-card--title i.fas:active, .menu-card--title i.fas:hover, .menu-card--title .linear-gradient:active, .menu-card--title .linear-gradient:hover {
+.menu-card--title i.fas:active, .menu-card--title i.fas:hover,
+.menu-card--title .linear-gradient:active,
+.menu-card--title .linear-gradient:hover {
+  animation: heart-grow 1000ms ease-in-out;
   opacity: 1;
 }
 
@@ -451,7 +472,8 @@ header .logo h1 {
   width: 100%;
   overflow: hidden;
 }
-.menus .menu-grid--text h4, .menus .menu-grid--text p {
+.menus .menu-grid--text h4,
+.menus .menu-grid--text p {
   margin: 10px;
   overflow: hidden;
   text-overflow: ellipsis;

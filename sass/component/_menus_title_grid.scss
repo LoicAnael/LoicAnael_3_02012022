@@ -1,0 +1,34 @@
+.menu-card {
+  height: 70vh;
+  margin: 0;
+  &--image {
+    object-fit: cover;
+    height: 60vh;
+    width: 100%;
+    margin: 0;
+  }
+  &--title {
+    @include items-position($justify: space-between, $direction: row);
+    position: relative;
+    width: 100%;
+    bottom: 50px;
+    height: 20vh;
+    background-color: #eeeeee;
+    border-radius: 50px 50px 0 0;
+    padding-bottom: 30px;
+    h2 {
+      font-family: $font-shrikland;
+      font-size: xx-large;
+      margin-left: 20px;
+      width: 100%;
+    }
+    i.far,
+    i.fas {
+      position: absolute;
+      font-size: xx-large;
+      right: 20px;
+      cursor: pointer;
+    }
+    @include heart-design;
+  }
+}

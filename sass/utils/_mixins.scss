@@ -1,0 +1,44 @@
+/*mixings*/
+
+@mixin items-position(
+  $display: flex,
+  $align: center,
+  $justify: center,
+  $direction: column
+) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin btn-zoom {
+  transform: scale(1.02);
+  opacity: 80%;
+}
+@mixin btn-shade {
+  cursor: pointer;
+  box-shadow: 3px 3px 5px $grey-color;
+  transition: 50ms;
+}
+
+@mixin link-style {
+  text-decoration: none;
+  color: inherit;
+}
+@mixin grid-center {
+  display: grid;
+  place-items: center;
+}
+@mixin heart-design {
+  i.fas,
+  .linear-gradient {
+    opacity: 0;
+    color: $primary-color;
+    &:active,
+    &:hover {
+      animation: heart-grow 1000ms ease-in-out;
+      opacity: 1;
+    }
+  }
+}

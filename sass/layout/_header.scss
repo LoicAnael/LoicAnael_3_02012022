@@ -1,14 +1,13 @@
-
-body{
-    margin: 0;
-    header{
+body {
+  margin: 0;
+  header {
     @include grid-center;
     height: 80px;
     box-shadow: 0 0 4px $grey-color;
     position: relative;
     margin: 0;
-    h1{
-      font-family:$font-shrikland;
+    h1 {
+      font-family: $font-shrikland;
     }
   }
-  }
+}

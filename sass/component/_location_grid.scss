@@ -1,0 +1,10 @@
+main {
+  & .location {
+    @include items-position($direction: unset);
+    background-color: $light-grey;
+    gap: 10px;
+    & i {
+      font-size: large;
+    }
+  }
+}

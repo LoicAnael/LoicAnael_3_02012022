@@ -1,0 +1,15 @@
+@mixin button-style {
+  padding: 15px 30px;
+  border-radius: 30px;
+  background-image: $gradient-color;
+  border: none;
+  font-size: large;
+  font-weight: 700;
+  color: $white-color;
+  margin-bottom: 20px;
+  @include btn-shade;
+  &:active,
+  &:hover {
+    @include btn-zoom;
+  }
+}

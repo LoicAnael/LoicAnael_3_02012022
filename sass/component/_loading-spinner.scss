@@ -1,0 +1,20 @@
+.load {
+  animation: loading 1s 3s ease-in-out;
+  animation-fill-mode: forwards;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  inset: 0;
+  opacity: 1;
+  display: grid;
+  place-items: center;
+  &::before {
+    content: " ";
+    animation: spinner 3s ease-in-out forwards;
+    width: 80px;
+    height: 120px;
+    border-left: 15px solid $primary-color;
+    border-right: 15px solid $secondary-color;
+    border-radius: 50%;
+  }
+}
