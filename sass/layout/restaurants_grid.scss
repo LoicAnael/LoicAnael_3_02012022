@@ -15,7 +15,7 @@
       grid-template-columns: repeat(1, 100%);
       width: 90%;
       gap: 20px;
-      @media screen and (min-width: 992px) {
+      @include desktop-only {
       grid-template-columns : repeat(2, 49%); 
       }
       &-card{
@@ -30,7 +30,7 @@
         &:active{
           @include btn-zoom;
         }
-        @media screen and (min-width:992px){
+        @include desktop-only{
           &:hover{
             @include btn-zoom;
           }

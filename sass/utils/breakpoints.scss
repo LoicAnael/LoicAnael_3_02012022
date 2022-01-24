@@ -1,0 +1,7 @@
+$breakpoints: 992px;
+
+@mixin desktop-only {
+    @media screen and (min-width: $breakpoints){
+        @content;
+    }
+}
