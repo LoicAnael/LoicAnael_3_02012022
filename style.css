@@ -134,12 +134,12 @@ section .discover-button {
   color: white;
   margin-bottom: 20px;
   cursor: pointer;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 1px 1px 3px grey;
   transition: 50ms;
 }
 section .discover-button:active, section .discover-button:hover {
-  transform: scale(1.02);
-  opacity: 80%;
+  transform: scale(1.01);
+  opacity: 90%;
 }
 
 .functioning {
@@ -174,7 +174,7 @@ section .discover-button:active, section .discover-button:hover {
   font-weight: 500;
   font-size: large;
   cursor: pointer;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 1px 1px 3px grey;
   transition: 50ms;
 }
 .functioning ol li i {
@@ -229,7 +229,7 @@ section .discover-button:active, section .discover-button:hover {
 }
 .restaurants .restaurant-card {
   cursor: pointer;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 1px 1px 3px grey;
   transition: 50ms;
   display: flex;
   align-items: unset;
@@ -243,13 +243,13 @@ section .discover-button:active, section .discover-button:hover {
   background-color: white;
 }
 .restaurants .restaurant-card:active {
-  transform: scale(1.02);
-  opacity: 80%;
+  transform: scale(1.01);
+  opacity: 90%;
 }
 @media screen and (min-width: 992px) {
   .restaurants .restaurant-card:hover {
-    transform: scale(1.02);
-    opacity: 80%;
+    transform: scale(1.01);
+    opacity: 90%;
   }
 }
 .restaurants .restaurant-card--image img {
@@ -291,14 +291,11 @@ section .discover-button:active, section .discover-button:hover {
   right: 20px;
   top: 20px;
 }
-.restaurants .restaurant-card--description i.fas,
-.restaurants .restaurant-card--description .linear-gradient {
+.restaurants .restaurant-card--description i.fas {
   opacity: 0;
   color: #9356DC;
 }
-.restaurants .restaurant-card--description i.fas:active, .restaurants .restaurant-card--description i.fas:hover,
-.restaurants .restaurant-card--description .linear-gradient:active,
-.restaurants .restaurant-card--description .linear-gradient:hover {
+.restaurants .restaurant-card--description i.fas:hover, .restaurants .restaurant-card--description i.fas:active {
   animation: heart-grow 1000ms ease-in-out;
   opacity: 1;
 }
@@ -375,21 +372,18 @@ header .logo h1 {
   margin-left: 20px;
   width: 100%;
 }
-.menu-card--title i.far,
-.menu-card--title i.fas {
+.menu-card--title i.fas,
+.menu-card--title i.far {
   position: absolute;
   font-size: xx-large;
   right: 20px;
   cursor: pointer;
 }
-.menu-card--title i.fas,
-.menu-card--title .linear-gradient {
+.menu-card--title i.fas {
   opacity: 0;
   color: #9356DC;
 }
-.menu-card--title i.fas:active, .menu-card--title i.fas:hover,
-.menu-card--title .linear-gradient:active,
-.menu-card--title .linear-gradient:hover {
+.menu-card--title i.fas:hover, .menu-card--title i.fas:active {
   animation: heart-grow 1000ms ease-in-out;
   opacity: 1;
 }
@@ -438,7 +432,7 @@ header .logo h1 {
   background-color: white;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 1px 1px 3px grey;
   transition: 50ms;
   cursor: pointer;
   height: 70px;
@@ -524,12 +518,12 @@ header .logo h1 {
   color: white;
   margin-bottom: 20px;
   cursor: pointer;
-  box-shadow: 3px 3px 5px grey;
+  box-shadow: 1px 1px 3px grey;
   transition: 50ms;
 }
 .order button:active, .order button:hover {
-  transform: scale(1.02);
-  opacity: 80%;
+  transform: scale(1.01);
+  opacity: 90%;
 }
 
 /*# sourceMappingURL=style.css.map */

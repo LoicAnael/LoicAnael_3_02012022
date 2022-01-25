@@ -13,12 +13,12 @@
 }
 
 @mixin btn-zoom {
-  transform: scale(1.02);
-  opacity: 80%;
+  transform: scale(1.01);
+  opacity: 90%;
 }
 @mixin btn-shade {
   cursor: pointer;
-  box-shadow: 3px 3px 5px $grey-color;
+  box-shadow: 1px 1px 3px $grey-color;
   transition: 50ms;
 }
 
@@ -31,12 +31,11 @@
   place-items: center;
 }
 @mixin heart-design {
-  i.fas,
-  .linear-gradient {
+  i.fas {
     opacity: 0;
     color: $primary-color;
-    &:active,
-    &:hover {
+    &:hover,
+    &:active {
       animation: heart-grow 1000ms ease-in-out;
       opacity: 1;
     }
