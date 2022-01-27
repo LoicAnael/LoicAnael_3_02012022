@@ -7,6 +7,7 @@ Here is the link to the site: https://loicanael.github.io/LoicAnael_3_02012022/
 Ohmyfood! is a young startup that would like to impose itself on the catering market. The goal is to develop a 100% mobile site that lists the menus of gourmet restaurants. In addition to traditional reservation systems, customers will be able to compose their meal menu so that the dishes are ready when they arrive. No more waiting times at the restaurant!
 
 Technology
+
 ● The development must be done in CSS, without JavaScript.
 ● No framework should be used, on the other hand the use of SASS would be a
 more.
@@ -15,6 +16,7 @@ more.
 Github Pages when complete.
 
 Compatibility
+
 The target being people connected and in a hurry, the site will be developed using
 the mobile-first approach. For this reason, only mobile models will be produced.
 On tablet and desktop, the site will have to adapt, but these supports are not a priority,
@@ -25,6 +27,7 @@ their layout is free.
 Chrome and Firefox.
 
 Expected deliverables
+
 Page content
 Home page (x1)
 ● Display of restaurant locations. Eventually it will be possible to choose
@@ -34,17 +37,21 @@ location to find restaurants near a certain place.
 the user is redirected to the menu page.
 Menu Pages (x4)
 ● 4 pages each containing the menu of a restaurant.
+
 Footer
 ● The footer is identical on all pages.
 ● When clicking on “Contact”, a forwarding to an e-mail address is made.
+
 Header
 ● The header is present on all pages.
 ● On the home page, it contains the site logo.
 ● On the menu pages, it also contains a button to return to the home page.
 
 Graphic effects and animations
+
 Effects accessible by clicking or hovering are visible on the model. They will have to use
 CSS animations or transitions, no JavaScript or library.
+
 Buttons
 ● On hover, the background color of the main buttons should lighten slightly.
 The drop shadow should also be more visible.
@@ -52,6 +59,7 @@ The drop shadow should also be more visible.
 heart-shaped "Like" button is present on the model. On click, it will have to
 fill gradually. For this first version, the effect may appear at
 hover on desktop instead of click.
+
 Home page
 ● When the application has more menus, a “loading spinner” will be needed. On
 this model, we want to have a preview of it. It should appear for 1 to
@@ -59,7 +67,8 @@ this model, we want to have a preview of it. It should appear for 1 to
 use CSS animations (no library). The design of this loader is not defined,
 any proposal is therefore welcome as long as it is consistent with the charter
 website graphics.
-menu pages
+
+Menu pages
 ● Upon arrival on the page, the dishes should appear gradually with a slight
 time lag. They can either appear one by one or in groups
 "Starter, main course and dessert". An example of the expected effect is provided.
