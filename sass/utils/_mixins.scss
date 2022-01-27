@@ -34,9 +34,10 @@
   i.fas {
     opacity: 0;
     color: $primary-color;
-    &:hover,
-    &:active {
-      animation: heart-grow 1000ms ease-in-out;
+
+    &:active,
+    &:hover {
+      animation: heart-grow 500ms 0ms ease forwards;
       opacity: 1;
     }
   }

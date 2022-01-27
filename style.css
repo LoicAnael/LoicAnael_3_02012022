@@ -295,8 +295,8 @@ section .discover-button:active, section .discover-button:hover {
   opacity: 0;
   color: #9356DC;
 }
-.restaurants .restaurant-card--description i.fas:hover, .restaurants .restaurant-card--description i.fas:active {
-  animation: heart-grow 1000ms ease-in-out;
+.restaurants .restaurant-card--description i.fas:active, .restaurants .restaurant-card--description i.fas:hover {
+  animation: heart-grow 500ms 0ms ease forwards;
   opacity: 1;
 }
 
@@ -383,8 +383,8 @@ header .logo h1 {
   opacity: 0;
   color: #9356DC;
 }
-.menu-card--title i.fas:hover, .menu-card--title i.fas:active {
-  animation: heart-grow 1000ms ease-in-out;
+.menu-card--title i.fas:active, .menu-card--title i.fas:hover {
+  animation: heart-grow 500ms 0ms ease forwards;
   opacity: 1;
 }
 
