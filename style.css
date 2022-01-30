@@ -483,9 +483,9 @@ header .logo h1 {
   color: white;
   height: 100%;
   border-radius: 0 20px 20px 0;
-  width: 15%;
+  width: 80px;
   background-color: #99E2D0;
-  margin-right: -16%;
+  margin-right: -20%;
   font-size: x-large;
   transition: margin-right 1000ms;
 }
